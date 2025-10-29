@@ -25,6 +25,10 @@ class LoginController extends Controller
     {
         return view('auth.login');
     }
+    public function showAdminLoginForm()
+    {
+        return view('auth.login-admin');
+    }
 
     /**
      * Menampilkan halaman register
@@ -72,6 +76,36 @@ class LoginController extends Controller
         return back()->withInput($request->only('username'))
             ->withErrors(['username' => 'Username atau password salah']);
     }
+
+    /**
+     * Proses login khusus admin
+     */
+    public function adminLogin(Request $request)
+    {
+        $request->validate([
+            'username' => 'required',
+            'password' => 'required',
+        ]);
+
+        $user = User::where('username', $request->username)->first();
+
+        // Pastikan user ada dan password cocok
+        if ($user && Hash::check($request->password, $user->password)) {
+            // Pastikan user punya role admin
+            if ($user->roles !== 'admin') {
+                return redirect('/login')->with('error', 'Akses hanya untuk admin.');
+            }
+
+            // Login user admin
+            Auth::login($user, $request->filled('remember'));
+            $request->session()->regenerate();
+
+            return redirect()->route('dashboard-admin');
+        }
+
+        return back()->withInput($request->only('username'))
+            ->withErrors(['username' => 'Username atau password salah.']);
+    }    
 
     /**
      * Proses registrasi pengguna baru

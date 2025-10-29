@@ -56,6 +56,10 @@ Route::middleware(['guest'])->group(function () {
     Route::get('/login', [LoginController::class, 'showLoginForm'])->name('login');
     Route::post('/login', [LoginController::class, 'login']);
 
+    //Login Admin
+    Route::get('/login/admin', [LoginController::class, 'showAdminLoginForm'])->name('login.admin');
+    Route::post('/login/admin', [LoginController::class, 'adminLogin'])->name('login.admin.submit');
+    
     // Register routes
     Route::get('/register', [LoginController::class, 'showRegisterForm'])->name('register');
     Route::post('/register', [LoginController::class, 'register']);
