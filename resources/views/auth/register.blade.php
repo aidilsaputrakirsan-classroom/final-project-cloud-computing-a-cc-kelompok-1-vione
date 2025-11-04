@@ -1,277 +1,81 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="csrf-token" content="{{ csrf_token() }}">
-    <title>Registrasi PawCare</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-    <!-- SweetAlert2 CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
-    <style>
-        body {
-            background-image: url('/rsaule.jpg');
-            background-size: cover;
-            background-repeat: no-repeat;
-            background-position: center;
-            height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-family: 'Arial', sans-serif;
-            margin: 0;
-        }
-        .card {
-            background-color: rgba(255, 255, 255, 0.8);
-            border: none;
-            border-radius: 20px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
-            padding: 40px;
-            width: 100%;
-            max-width: 450px;
-            text-align: center;
-        }
-        .card-header {
-            background-color: transparent;
-            color: #4e73df;
-            font-size: 30px;
-            font-weight: bold;
-            margin-bottom: 10px;
-        }
-        .doctor-name {
-            font-size: 18px;
-            color: #6c757d;
-            font-weight: normal;
-            margin-top: 5px;
-        }
-        .form-control {
-            border: 1px solid #ddd;
-            border-radius: 10px;
-            padding: 15px;
-            font-size: 16px;
-            transition: border-color 0.3s ease, box-shadow 0.3s ease;
-        }
-        .form-control:focus {
-            border-color: #4e73df;
-            box-shadow: 0 0 10px rgba(78, 115, 223, 0.4);
-        }
-        .password-container {
-            position: relative;
-        }
-        .password-toggle {
-            position: absolute;
-            right: 15px;
-            top: 50%;
-            transform: translateY(-50%);
-            cursor: pointer;
-            color: #6c757d;
-            font-size: 20px;
-        }
-        .btn-primary {
-            background-color: #4e73df;
-            border: none;
-            border-radius: 10px;
-            padding: 15px;
-            font-size: 16px;
-            width: 100%;
-            transition: background-color 0.3s ease;
-        }
-        .btn-primary:hover {
-            background-color: #375a7f;
-        }
-        .text-muted {
-            text-align: center;
-            display: block;
-            margin-top: 20px;
-            color: #858796;
-        }
-        .text-muted a {
-            color: #4e73df;
-            text-decoration: none;
-        }
-        .text-muted a:hover {
-            text-decoration: underline;
-        }
-        .text-danger {
-            color: #e74a3b;
-            text-align: left;
-            margin-top: 5px;
-            font-size: 14px;
-        }
-    </style>
-</head>
-<body>
-    <div class="card">
-    <div class="card-header">
-        <img src="{{ asset('images/veterinarian.png') }}" alt="Vet" width="300" height="300">
-        <br>
-        PawCare <br>
-     </div>
+@extends('layouts.auth_layout')
 
-        <div class="card-body">
-            @if ($errors->any())
-            <div class="alert alert-danger">
-                <ul>
-                @foreach ($errors->all() as $error)
-                    <li>{{ $error }}</li>
-                @endforeach
-                </ul>
+@section('content')
+<!-- Card untuk Register -->
+<div class="card shadow-lg">
+    <div class="card-body p-4">
+        
+        <div class="text-center w-75 m-auto">
+            <h4 class="text-dark-50 text-center pb-0 fw-bold">Create Account</h4>
+            <p class="text-muted mb-4">Get started by creating your account.</p>
+        </div>
+
+        <form method="POST" action="{{ route('register') }}">
+            @csrf
+
+            <!-- Name -->
+            <div class="mb-3">
+                <label for="name" class="form-label">Name</label>
+                <input id="name" class="form-control @error('name') is-invalid @enderror" type="text" name="name" value="{{ old('name') }}" required autofocus autocomplete="name" />
+                @error('name')
+                    <div class="invalid-feedback">{{ $message }}</div>
+                @enderror
             </div>
-            @endif
 
-            <form method="POST" action="{{ route('register') }}" id="registrationForm">
-                @csrf
-                <div class="form-group">
-                    <input type="text" name="nama_user" id="nama" class="form-control" placeholder="Nama" value="{{ old('nama_user') }}" required>
-                    <div class="text-danger" id="namaError">
-                        @error('nama_user')
-                            {{ $message }}
-                        @enderror
-                    </div>
-                </div>
-                <div class="form-group">
-                    <input type="text" name="username" id="username" class="form-control" placeholder="Email/Username" value="{{ old('username') }}" required>
-                    <div class="text-danger" id="usernameError">
-                        @error('username')
-                            {{ $message }}
-                        @enderror
-                    </div>
-                </div>
-                <div class="form-group password-container">
-                    <input type="password" name="password" id="password" class="form-control" placeholder="Password" required>
-                    <span class="password-toggle" id="toggle-password" onclick="togglePassword()">
-                        <i class="fa fa-eye"></i>
-                    </span>
-                    <div class="text-danger" id="passwordError">
-                        @error('password')
-                            {{ $message }}
-                        @enderror
-                    </div>
-                </div>
-                <div class="form-group password-container">
-                    <input type="password" name="password_confirmation" id="konfirmasi_password" class="form-control" placeholder="Konfirmasi Password" required>
-                    <span class="password-toggle" id="toggle-confirm-password" onclick="toggleConfirmPassword()">
-                        <i class="fa fa-eye"></i>
-                    </span>
-                    <div class="text-danger" id="konfirmasiPasswordError"></div>
-                </div>
-                <div class="form-group">
-                    <input type="text" name="no_telepon" id="no_telepon" class="form-control" placeholder="No Telepon" value="{{ old('no_telepon') }}" required>
-                    <div class="text-danger" id="teleponError">
-                        @error('no_telepon')
-                            {{ $message }}
-                        @enderror
-                    </div>
-                </div>
-                <button type="submit" class="btn btn-primary">Registrasi</button>
-            </form>
-            
-            <div class="text-muted mt-3">
-                Sudah punya akun? <a href="{{ route('login') }}">Login</a>
+            <!-- Email Address -->
+            <div class="mb-3">
+                <label for="email" class="form-label">Email address</label>
+                <input id="email" class="form-control @error('email') is-invalid @enderror" type="email" name="email" value="{{ old('email') }}" required autocomplete="username" />
+                @error('email')
+                    <div class="invalid-feedback">{{ $message }}</div>
+                @enderror
+            </div>
+
+            <!-- Password -->
+            <div class="mb-3">
+                <label for="password" class="form-label">Password</label>
+                <input id="password" class="form-control @error('password') is-invalid @enderror" type="password" name="password" required autocomplete="new-password" />
+                @error('password')
+                    <div class="invalid-feedback">{{ $message }}</div>
+                @enderror
+            </div>
+
+            <!-- Confirm Password -->
+            <div class="mb-3">
+                <label for="password_confirmation" class="form-label">Confirm Password</label>
+                <input id="password_confirmation" class="form-control" type="password" name="password_confirmation" required autocomplete="new-password" />
+            </div>
+
+            <!-- Role -->
+            <div class="mb-3">
+                <label for="role" class="form-label">Register as:</label>
+                <select id="role" name="role" class="form-select @error('role') is-invalid @enderror" required>
+                    <option value="">-- Select your role --</option>
+                    <option value="owner" {{ old('role') == 'owner' ? 'selected' : '' }}>Pet Owner</option>
+                    <option value="vet" {{ old('role') == 'vet' ? 'selected' : '' }}>Veterinarian (Doctor)</option>
+                    <option value="shelter" {{ old('role') == 'shelter' ? 'selected' : '' }}>Shelter / Admin</option>
+                </select>
+                @error('role')
+                    <div class="invalid-feedback">{{ $message }}</div>
+                @enderror
+            </div>
+
+            <!-- Tombol Submit -->
+            <div class="d-grid mb-0 text-center">
+                <button class="btn btn-primary" type="submit"> 
+                    <i class="fa-solid fa-user-plus me-1"></i> Register 
+                </button>
+            </div>
+        </form>
+
+        <!-- Link ke Login -->
+        <div class="row mt-3">
+            <div class="col-12 text-center">
+                <p class="text-muted">Already have account? <a href="{{ route('login') }}" class="text-primary ms-1"><b>Log In</b></a></p>
             </div>
         </div>
-    </div>
 
-    <!-- SweetAlert2 JS -->
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    </div> <!-- end card-body -->
+</div> <!-- end card -->
+@endsection
 
-    <script>
-        function togglePassword() {
-            var passwordField = document.getElementById("password");
-            var toggleIcon = document.getElementById("toggle-password").querySelector('i');
-            if (passwordField.type === "password") {
-                passwordField.type = "text";
-                toggleIcon.classList.remove("fa-eye");
-                toggleIcon.classList.add("fa-eye-slash");
-            } else {
-                passwordField.type = "password";
-                toggleIcon.classList.remove("fa-eye-slash");
-                toggleIcon.classList.add("fa-eye");
-            }
-        }
-
-        function toggleConfirmPassword() {
-            var confirmPasswordField = document.getElementById("konfirmasi_password");
-            var toggleIcon = document.getElementById("toggle-confirm-password").querySelector('i');
-            if (confirmPasswordField.type === "password") {
-                confirmPasswordField.type = "text";
-                toggleIcon.classList.remove("fa-eye");
-                toggleIcon.classList.add("fa-eye-slash");
-            } else {
-                confirmPasswordField.type = "password";
-                toggleIcon.classList.remove("fa-eye-slash");
-                toggleIcon.classList.add("fa-eye");
-            }
-        }
-
-        // Let's try a different approach - using traditional form submission first with client-side validation
-        document.addEventListener('DOMContentLoaded', function() {
-            const form = document.getElementById('registrationForm');
-            
-            form.addEventListener('submit', function(e) {
-                e.preventDefault();
-                
-                // Reset previous error messages
-                document.querySelectorAll('.text-danger').forEach(el => {
-                    el.textContent = '';
-                });
-                
-                // Get form values
-                const nama = document.getElementById('nama').value.trim();
-                const username = document.getElementById('username').value.trim();
-                const password = document.getElementById('password').value;
-                const konfirmasiPassword = document.getElementById('konfirmasi_password').value;
-                const noTelepon = document.getElementById('no_telepon').value.trim();
-                
-                // Validation flags
-                let isValid = true;
-                
-                // Basic validation
-                if (nama.length < 3) {
-                    document.getElementById('namaError').textContent = 'Nama minimal 3 karakter';
-                    isValid = false;
-                }
-                
-                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-                if (!emailRegex.test(username)) {
-                    document.getElementById('usernameError').textContent = 'Format email tidak valid';
-                    isValid = false;
-                }
-                
-                if (password.length < 6) {
-                    document.getElementById('passwordError').textContent = 'Password minimal 6 karakter';
-                    isValid = false;
-                }
-                
-                if (password !== konfirmasiPassword) {
-                    document.getElementById('konfirmasiPasswordError').textContent = 'Konfirmasi password tidak cocok';
-                    isValid = false;
-                }
-                
-                const phoneRegex = /^[0-9]{10,13}$/;
-                if (!phoneRegex.test(noTelepon)) {
-                    document.getElementById('teleponError').textContent = 'Nomor telepon harus 10-13 digit angka';
-                    isValid = false;
-                }
-                
-                if (isValid) {
-                    // Show loading state with SweetAlert
-                    Swal.fire({
-                        title: 'Memproses...',
-                        text: 'Mohon tunggu sebentar',
-                        allowOutsideClick: false,
-                        didOpen: () => {
-                            Swal.showLoading();
-                        }
-                    });
-                    
-                    // Submit the form (traditional submission)
-                    form.submit();
-                }
-            });
-        });
-    </script>
-</body>
-</html>
