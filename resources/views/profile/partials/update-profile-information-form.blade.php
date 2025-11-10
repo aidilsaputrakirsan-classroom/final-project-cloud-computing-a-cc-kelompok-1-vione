@@ -48,16 +48,12 @@
         </div>
 
         <div class="flex items-center gap-4">
-            <x-primary-button>{{ __('Save') }}</x-primary-button>
-
+            <button type="submit" class="btn btn-primary">{{ __('Save') }}</button>
             @if (session('status') === 'profile-updated')
-                <p
-                    x-data="{ show: true }"
-                    x-show="show"
-                    x-transition
-                    x-init="setTimeout(() => show = false, 2000)"
-                    class="text-sm text-gray-600"
-                >{{ __('Saved.') }}</p>
+                <div class="alert alert-success alert-dismissible fade show mt-3" role="alert">
+                    <i class="mdi mdi-check-circle me-2"></i> {{ __('Profile information saved.') }}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
             @endif
         </div>
     </form>
