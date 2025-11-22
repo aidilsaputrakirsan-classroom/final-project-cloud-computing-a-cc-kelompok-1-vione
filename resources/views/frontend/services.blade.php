@@ -7,13 +7,9 @@
         <div class="row align-items-center">
             <div class="col-lg-6">
                 <div class="banner-text">
-                    <h2>Our Process</h2>
+                    <h2>Layanan lengkap untuk kebutuhan kesehatan hewan peliharaan Anda.</h2>
                     <ol class="breadcrumb">
-                      <li class="breadcrumb-item">
-                        <a href="index-2.html">Home</a>
-                      </li>
-                        <li class="breadcrumb-item active" aria-current="page">pages</li>
-                        <li class="breadcrumb-item active" aria-current="page">Our Process</li>
+
                     </ol>
                 </div>
             </div>
@@ -41,8 +37,7 @@
 <section class="gap">
   <div class="container">
     <div class="heading works">
-      <h2>How It Works</h2>
-      <p>Lorem ipsum dolor sit amet,consectetur adipi usmod tempor incididunt ut labore consectetur adipiscing elibore et.</p>
+      <p></p>
     </div>
     <div class="row align-items-center">
       <div class="col-lg-6">
@@ -55,8 +50,8 @@
                         <span>1</span>
                     </div>
                     <div>
-                      <h4>Search Service</h4>
-                      <p>Lorem ipsum dolor sit ametur adipis elit sed do eiu incididunt ut labore et adipisco eiu incididunt ut</p>
+                      <h4>Pemeriksaan Kesehatan (Check-Up)</h4>
+                      <p>Layanan pemeriksaan menyeluruh untuk memantau kondisi fisik hewan peliharaan. Sangat disarankan dilakukan secara rutin untuk mencegah penyakit lebih dini.</p>
                     </div>
                 </div>
       </div>
@@ -80,8 +75,8 @@
                         <span>2</span>
                     </div>
                     <div>
-                      <h4>Book and Pay</h4>
-                      <p>Lorem ipsum dolor sit ametur adipis elit sed do eiu incididunt ut labore et adipisco eiu incididunt ut</p>
+                      <h4>Pendaftaran & Booking Online</h4>
+                      <p>Akses layanan PawCare dengan mudah melalui sistem booking online. Pemilik hewan dapat memilih layanan, dokter, dan jadwal yang diinginkan hanya dalam beberapa klik.</p>
                     </div>
                 </div>
       </div>
@@ -95,8 +90,8 @@
                         <span>3</span>
                     </div>
                     <div>
-                      <h4>Relax</h4>
-                      <p>Lorem ipsum dolor sit ametur adipis elit sed do eiu incididunt ut labore et adipisco eiu incididunt ut</p>
+                      <h4>Konsultasi Dokter Hewan</h4>
+                      <p>Konsultasikan segala kebutuhan kesehatan hewan Anda langsung dengan dokter hewan profesional.</p>
                     </div>
                 </div>
       </div>
@@ -109,35 +104,4 @@
   </div>
 </section>
 <section class="awards-section gap" style="background-image:url(assets/img/client-b.jpg)">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-6">
-                <div class="welcome-to">
-                    <h2>Award winning dog sitting from PawCare</h2>
-                </div>
-                <div class="love-your-pets">
-                    <p>Lorem ipsum dolor sit amet,consectetur adipiscing elit do eimet,consectetur adipiscing elibore et.</p>
-                    <ul class="list">
-                        <li><img src="assets/img/list.png" alt="list">Graceful goldfish, to small, cute kittens</li>
-                        <li><img src="assets/img/list.png" alt="list">Feeders are either veterinary qualified staf</li>
-                        <li><img src="assets/img/list.png" alt="list">Experienced pet owners and animal lovers</li>
-                        <li><img src="assets/img/list.png" alt="list">Hungry horses: whatever the size of your pe</li>
-                    </ul>
-                    <div class="awards two">
-                        <img src="assets/img/awards-1.png" alt="awards">
-                        <img src="assets/img/awards-2.png" alt="awards">
-                        <img src="assets/img/awards-3.png" alt="awards">
-                        <img src="assets/img/awards-4.png" alt="awards">
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-6">
-                <div class="dog-walker two d-block">
-                    <img src="assets/img/dog-walker-1.png" alt="dog walker">
-                    <img src="assets/img/line.png" class="line" alt="line">
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
 @endsection
