@@ -8,8 +8,8 @@
                 <div class="row">
                     <div class="col-lg-5">
                         <div class="hero-text">
-                            <h1>Take a Good Care of Pets</h1>
-                            <h3>We are your local dog home boarding service giving you complete</h3>
+                            <h1>Happy Pets, Happier Owners</h1>
+                            <h3>Perawatan dan kasih sayang terbaik untuk hewan kesayangan Anda.</h3>
                             {{-- PERUBAHAN: Mengarah ke halaman login --}}
                             <a href="{{ route('login') }}" class="button">Get Appointment</a>
                         </div>
@@ -27,7 +27,7 @@
                     <div class="col-lg-5">
                         <div class="hero-text">
                             <h1>Healthy Pets, Happy People</h1>
-                            <h3>We are your local dog home boarding service giving you complete</h3>
+                            <h3>Kami membantu menjaga kesehatan, kebersihan, dan kebahagiaan hewan peliharaan Anda setiap hari</h3>
                             {{-- PERUBAHAN: Mengarah ke halaman login --}}
                             <a href="{{ route('login') }}" class="button">Get Appointment</a>
                         </div>
@@ -45,7 +45,7 @@
                     <div class="col-lg-5">
                         <div class="hero-text">
                             <h1>Take a Good Care of Pets</h1>
-                            <h3>We are your local dog home boarding service giving you complete</h3>
+                            <h3>Layanan profesional yang memastikan kesehatan dan kenyamanan hewan Anda</h3>
                             {{-- PERUBAHAN: Mengarah ke halaman login --}}
                             <a href="{{ route('login') }}" class="button">Get Appointment</a>
                         </div>
@@ -76,8 +76,8 @@
                         </svg>
 
                     </div>
-                    <a href="#"><h5>Find a Dog Sitter</h5></a>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et.</p>
+                    <a href="#"><h5>Di Sini, Hewan Kesayangan Diperlakukan Seperti Keluarga</h5></a>
+                    <p>Memberi mereka rasa aman, perhatian, dan kasih yang membuat hari-hari mereka lebih bahagia.</p>
                 </div>
             </div>
             <div class="col-lg-4 col-md-6">
@@ -88,8 +88,8 @@
                             <path fill-rule="evenodd" clip-rule="evenodd" d="M9.82698 416.603C-19.0352 298.701 18.5108 173.372 107.497 90.7633L110.607 96.5197C24.3117 177.199 -12.311 298.935 15.0502 413.781L9.82698 416.603ZM89.893 565.433C172.674 654.828 298.511 692.463 416.766 663.224L414.077 658.245C298.613 686.363 175.954 649.666 94.9055 562.725L89.893 565.433ZM656.842 259.141C685.039 374.21 648.825 496.492 562.625 577.656L565.413 582.817C654.501 499.935 691.9 374.187 662.536 256.065L656.842 259.141ZM581.945 107.518C499.236 18.8371 373.997 -18.4724 256.228 10.5134L259.436 16.4515C373.888 -10.991 495.248 25.1518 576.04 110.708L581.945 107.518Z" fill="#fb5e3c"/>
                         </svg>
                     </div>
-                    <a href="#"><h5>Become a Dog Sitter</h5></a>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et.</p>
+                    <a href="#"><h5>Kasih Sayang untuk Teman Berbulu Anda</h5></a>
+                    <p>Setiap hewan memiliki cerita, dan kami ada untuk memastikan kisah mereka penuh kebahagiaan, kenyamanan, dan cinta.</p>
                 </div>
             </div>
             <div class="col-lg-4 col-md-6">
@@ -100,8 +100,8 @@
                             <path fill-rule="evenodd" clip-rule="evenodd" d="M9.82698 416.603C-19.0352 298.701 18.5108 173.372 107.497 90.7633L110.607 96.5197C24.3117 177.199 -12.311 298.935 15.0502 413.781L9.82698 416.603ZM89.893 565.433C172.674 654.828 298.511 692.463 416.766 663.224L414.077 658.245C298.613 686.363 175.954 649.666 94.9055 562.725L89.893 565.433ZM656.842 259.141C685.039 374.21 648.825 496.492 562.625 577.656L565.413 582.817C654.501 499.935 691.9 374.187 662.536 256.065L656.842 259.141ZM581.945 107.518C499.236 18.8371 373.997 -18.4724 256.228 10.5134L259.436 16.4515C373.888 -10.991 495.248 25.1518 576.04 110.708L581.945 107.518Z" fill="#fedc4f"/>
                         </svg>
                     </div>
-                    <a href="#"><h5> Start a franchise</h5></a>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et.</p>
+                    <a href="#"><h5> Merawat dengan Hati, Menyayangi Sepanjang Hari</h5></a>
+                    <p>Kami percaya bahwa hewan bukan sekadar peliharaan, mereka adalah keluarga yang pantas dicintai dan dijaga dengan sepenuh hati.</p>
                 </div>
             </div>
         </div>
@@ -112,8 +112,8 @@
         <div class="row">
             <div class="col-lg-6">
                 <div class="welcome-to">
-                    <h2>Welcome to The Pet Care Company</h2>
-                    <p>Lorem ipsum dolor sit amet,consectetur adipiscing elit do eiusmod tempor incididunt ut labore et.Lorem ipsumsit amet, consectetur adipiscing elit, sed do eiusmod teincididunt ut laamet,consectetur adipiscing elibore et.</p>
+                    <h2>Selamat Datang di Layanan Pawcare</h2>
+                    <p>PawCare menyediakan berbagai fitur yang mendukung proses layanan kesehatan hewan, mulai dari sistem booking layanan online, manajemen data hewan peliharaan, pencatatan rekam medis digital, hingga laporan layanan yang dapat diakses kapan saja.</p>
                     <div class="row mt-lg-5">
                         <div class="col-md-6">
                             <div class="pet-grooming">
@@ -121,8 +121,8 @@
                             <svg width="138" height="138" viewBox="0 0 673 673" xmlns="http://www.w3.org/2000/svg">
                                 <path fill-rule="evenodd" clip-rule="evenodd" d="M9.82698 416.603C-19.0352 298.701 18.5108 173.372 107.497 90.7633L110.607 96.5197C24.3117 177.199 -12.311 298.935 15.0502 413.781L9.82698 416.603ZM89.893 565.433C172.674 654.828 298.511 692.463 416.766 663.224L414.077 658.245C298.613 686.363 175.954 649.666 94.9055 562.725L89.893 565.433ZM656.842 259.141C685.039 374.21 648.825 496.492 562.625 577.656L565.413 582.817C654.501 499.935 691.9 374.187 662.536 256.065L656.842 259.141ZM581.945 107.518C499.236 18.8371 373.997 -18.4724 256.228 10.5134L259.436 16.4515C373.888 -10.991 495.248 25.1518 576.04 110.708L581.945 107.518Z" fill="#940c69"/>
                             </svg>
-                            <a href="#"><h4>Pet Grooming</h4></a>
-                            <p>Lorem ipsum dolor sit amet ur adipiscing elit, sed do eiu incididunt ut labore et.</p>
+                            <a href="#"><h4>Vet Appointment</h4></a>
+                            <p>Layanan konsultasi dan pemeriksaan kesehatan hewan oleh dokter profesional untuk memastikan mereka tetap sehat dan terlindungi.</p>
                             </div>
                         </div>
                         <div class="col-md-6">
@@ -131,8 +131,8 @@
                             <svg width="138" height="138" viewBox="0 0 673 673" xmlns="http://www.w3.org/2000/svg">
                                 <path fill-rule="evenodd" clip-rule="evenodd" d="M9.82698 416.603C-19.0352 298.701 18.5108 173.372 107.497 90.7633L110.607 96.5197C24.3117 177.199 -12.311 298.935 15.0502 413.781L9.82698 416.603ZM89.893 565.433C172.674 654.828 298.511 692.463 416.766 663.224L414.077 658.245C298.613 686.363 175.954 649.666 94.9055 562.725L89.893 565.433ZM656.842 259.141C685.039 374.21 648.825 496.492 562.625 577.656L565.413 582.817C654.501 499.935 691.9 374.187 662.536 256.065L656.842 259.141ZM581.945 107.518C499.236 18.8371 373.997 -18.4724 256.228 10.5134L259.436 16.4515C373.888 -10.991 495.248 25.1518 576.04 110.708L581.945 107.518Z" fill="#940c69"/>
                             </svg>
-                            <a href="#"><h4>Dog Walking</h4></a>
-                            <p>Lorem ipsum dolor sit amet ur adipiscing elit, sed do eiu incididunt ut labore et.</p>
+                            <a href="#"><h4>Pet Adoption</h4></a>
+                            <p>Temukan teman berbulu yang membutuhkan rumah baru. Adopsi sekarang dan berikan mereka kehidupan yang penuh cinta.</p>
                             </div>
                         </div>
                     </div>
@@ -205,63 +205,11 @@
         </div>
     </div>
 </section> 
-<section>
-    <div class="container">
-        <div class="heading">
-            <img src="assets/img/heading-img.png" alt="heading-img">
-            <h6>Meet Our Experts</h6>
-            <h2>Best Working Team</h2>
-        </div>
-        <div class="row">
-            <div class="col-lg-4 col-md-6">
-                <div class="team-working">
-                    <img src="assets/img/team-1.jpg" alt="team">
-                    <svg width="188" height="188" viewBox="0 0 673 673" xmlns="http://www.w3.org/2000/svg">
-                        <path fill-rule="evenodd" clip-rule="evenodd" d="M9.82698 416.603C-19.0352 298.701 18.5108 173.372 107.497 90.7633L110.607 96.5197C24.3117 177.199 -12.311 298.935 15.0502 413.781L9.82698 416.603ZM89.893 565.433C172.674 654.828 298.511 692.463 416.766 663.224L414.077 658.245C298.613 686.363 175.954 649.666 94.9055 562.725L89.893 565.433ZM656.842 259.141C685.039 374.21 648.825 496.492 562.625 577.656L565.413 582.817C654.501 499.935 691.9 374.187 662.536 256.065L656.842 259.141ZM581.945 107.518C499.236 18.8371 373.997 -18.4724 256.228 10.5134L259.436 16.4515C373.888 -10.991 495.248 25.1518 576.04 110.708L581.945 107.518Z" fill="#000"/>
-                    </svg>
-                    <span>Veterinary Assistant</span>
-                    <a href="team-details.html"><h4>Gorjona Hiller</h4></a>
-                    <ul class="social-icon">
-                        <li><a href="#"><i class="fa-brands fa-facebook-f"></i></a></li>
-                        <li><a href="#"><i class="fa-brands fa-twitter"></i></a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-6">
-                <div class="team-working">
-                    <img src="assets/img/team-2.jpg" alt="team">
-                    <svg width="188" height="188" viewBox="0 0 673 673" xmlns="http://www.w3.org/2000/svg">
-                        <path fill-rule="evenodd" clip-rule="evenodd" d="M9.82698 416.603C-19.0352 298.701 18.5108 173.372 107.497 90.7633L110.607 96.5197C24.3117 177.199 -12.311 298.935 15.0502 413.781L9.82698 416.603ZM89.893 565.433C172.674 654.828 298.511 692.463 416.766 663.224L414.077 658.245C298.613 686.363 175.954 649.666 94.9055 562.725L89.893 565.433ZM656.842 259.141C685.039 374.21 648.825 496.492 562.625 577.656L565.413 582.817C654.501 499.935 691.9 374.187 662.536 256.065L656.842 259.141ZM581.945 107.518C499.236 18.8371 373.997 -18.4724 256.228 10.5134L259.436 16.4515C373.888 -10.991 495.248 25.1518 576.04 110.708L581.945 107.518Z" fill="#000"/>
-                    </svg>
-                    <span>Veterinary Assistant</span>
-                    <a href="team-details.html"><h4>Willimes Domson</h4></a>
-                    <ul class="social-icon">
-                        <li><a href="#"><i class="fa-brands fa-facebook-f"></i></a></li>
-                        <li><a href="#"><i class="fa-brands fa-twitter"></i></a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-6">
-                <div class="team-working mb-0">
-                    <img src="assets/img/team-3.jpg" alt="team">
-                    <svg width="188" height="188" viewBox="0 0 673 673" xmlns="http://www.w3.org/2000/svg">
-                        <path fill-rule="evenodd" clip-rule="evenodd" d="M9.82698 416.603C-19.0352 298.701 18.5108 173.372 107.497 90.7633L110.607 96.5197C24.3117 177.199 -12.311 298.935 15.0502 413.781L9.82698 416.603ZM89.893 565.433C172.674 654.828 298.511 692.463 416.766 663.224L414.077 658.245C298.613 686.363 175.954 649.666 94.9055 562.725L89.893 565.433ZM656.842 259.141C685.039 374.21 648.825 496.492 562.625 577.656L565.413 582.817C654.501 499.935 691.9 374.187 662.536 256.065L656.842 259.141ZM581.945 107.518C499.236 18.8371 373.997 -18.4724 256.228 10.5134L259.436 16.4515C373.888 -10.991 495.248 25.1518 576.04 110.708L581.945 107.518Z" fill="#000"/>
-                    </svg>
-                    <span>Veterinary Assistant</span>
-                    <a href="team-details.html"><h4>Thomas Walkar</h4></a>
-                    <ul class="social-icon">
-                        <li><a href="#"><i class="fa-brands fa-facebook-f"></i></a></li>
-                        <li><a href="#"><i class="fa-brands fa-twitter"></i></a></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
+
 <section class="section-client gap" style="background-image: url(assets/img/client-b.jpg)">
     <div class="container">
         <div class="heading two">
-            <h2>What Our Client’s Say</h2>
+            <h2>Ini Kata Mereka</h2>
         </div>
         <div class="client-slider owl-carousel owl-theme">
             <div class="item" >
@@ -275,9 +223,9 @@
                             <li><i class="fa-solid fa-star"></i></li>
                             <li><i class="fa-solid fa-star"></i></li>
                         </ul>
-                        <p>Excepteur sint occaecat cupidatat nilesm aniu deserunt mollit anim Lorem set dolo liem amet dolor sit amet, consectetur adipiscing il erunti nuliems elit sed incididunt</p>
-                        <h4>Qlark Domous</h4>
-                        <span>Health Advisor</span>
+                        <p>"Pelayanan di PawCare benar-benar luar biasa. Dokternya ramah, komunikatif, dan sangat peduli dengan kondisi hewan saya. Sekarang saya lebih tenang karena tahu hewan kesayangan saya ditangani oleh profesional."</p>
+                        <h4>Maya R.,</h4>
+                        <span>Pet Owner</span>
                         <i class="quote">
                             <img src="assets/img/quote.png" alt="quote">
                         </i>
@@ -295,9 +243,9 @@
                             <li><i class="fa-solid fa-star"></i></li>
                             <li><i class="fa-solid fa-star"></i></li>
                         </ul>
-                        <p>Excepteur sint occaecat cupidatat nilesm aniu deserunt mollit anim Lorem set dolo liem amet dolor sit amet, consectetur adipiscing il erunti nuliems elit sed incididunt</p>
-                        <h4>Willimes Marko</h4>
-                        <span>Health Advisor</span>
+                        <p>"Saya selalu menggunakan layanan grooming di PawCare. Hasilnya selalu rapi, wangi, dan membuat anjing saya terlihat jauh lebih ceria. Sangat direkomendasikan!"</p>
+                        <h4>Dimas.,</h4>
+                        <span>Dog Lover</span>
                         <i class="quote">
                             <img src="assets/img/quote.png" alt="quote">
                         </i>
@@ -315,9 +263,9 @@
                             <li><i class="fa-solid fa-star"></i></li>
                             <li><i class="fa-solid fa-star"></i></li>
                         </ul>
-                        <p>Excepteur sint occaecat cupidatat nilesm aniu deserunt mollit anim Lorem set dolo liem amet dolor sit amet, consectetur adipiscing il erunti nuliems elit sed incididunt</p>
-                        <h4>Qlark Domous</h4>
-                        <span>Health Advisor</span>
+                        <p>"Proses booking dokter hewannya cepat dan mudah. Ketika datang ke klinik, pelayanan sangat ramah dan informatif. Kucing saya sekarang jauh lebih sehat."</p>
+                        <h4>Rani A.,</h4>
+                        <span>Cat Lover</span>
                         <i class="quote">
                             <img src="assets/img/quote.png" alt="quote">
                         </i>
@@ -340,7 +288,7 @@
 <div class="gap">
     <div class="container">
         <div class="insta-img">
-            <h3><i class="fa-brands fa-instagram"></i>Follow @domain.com</h3>
+            <h3><i class="fa-brands fa-instagram"></i>Follow @pawcare_</h3>
             <a href="#" class="button">Follow Us</a>
         </div>
             <ul class="image-gallery">
