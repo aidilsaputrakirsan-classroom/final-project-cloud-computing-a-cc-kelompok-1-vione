@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ActivityLogController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AppointController;
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
@@ -30,7 +31,7 @@ Route::get('/services', function () {
 // 🔐 AUTHENTICATED COMMON ROUTES (All Roles)
 // -----------------------------------------------------------------------------
 Route::middleware(['auth', 'verified'])->group(function () {
-    
+
     Route::get('/dashboard', function () {
         return view('dashboard');
     })->name('dashboard');
@@ -40,22 +41,27 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
-    // 📅 Booking Appointment (POST ONLY - Simpan Data)
+    // 📅 Booking Appointment
     Route::post('/appointments', [AppointController::class, 'store'])->name('appointments.store');
 
-    // ✅ FIX: Redirect GET /appointments ke halaman yang benar sesuai Role
+    // Redirect sesuai role
     Route::get('/appointments', function () {
         $role = auth()->user()->role;
-        
+
         if ($role === 'vet') {
             return redirect()->route('vet.appointments');
         } elseif ($role === 'shelter') {
             return redirect()->route('shelter.appointments');
         } else {
-            // Default ke owner
             return redirect()->route('owner.appointments');
         }
     });
+
+    // ------------------------------------------------------------
+    // ✅ ACTIVITY LOG (PERBAIKAN UTAMA)
+    // ------------------------------------------------------------
+    Route::get('/activity-logs', [ActivityLogController::class, 'index'])
+        ->name('activity.logs');
 });
 
 // -----------------------------------------------------------------------------
@@ -63,14 +69,14 @@ Route::middleware(['auth', 'verified'])->group(function () {
 // -----------------------------------------------------------------------------
 Route::middleware(['auth', 'verified', 'role:shelter'])->group(function () {
     Route::get('/shelter-dashboard', [ShelterController::class, 'index'])->name('shelter.dashboard');
-    
+
     // Pet Management
     Route::get('/shelter/add-pet', [ShelterController::class, 'create'])->name('shelter.addpet');
     Route::post('/shelter/add-pet', [ShelterController::class, 'store'])->name('shelter.storepet');
     Route::put('/shelter/update-pet/{id}', [ShelterController::class, 'update'])->name('shelter.updatepet');
     Route::delete('/shelter/delete-pet/{id}', [ShelterController::class, 'destroy'])->name('shelter.deletepet');
 
-    // Appointments (View & Cancel)
+    // Appointments
     Route::get('/shelter/appointments', [AppointController::class, 'shelterAppointments'])->name('shelter.appointments');
     Route::put('/shelter/cancel-appointment/{id}', [AppointController::class, 'cancel'])->name('shelter.appointment.cancel');
 
@@ -82,29 +88,27 @@ Route::middleware(['auth', 'verified', 'role:shelter'])->group(function () {
 // -----------------------------------------------------------------------------
 // 🩺 VET ROUTES
 // -----------------------------------------------------------------------------
-Route::middleware(['auth', 'verified', 'role:vet'])->group(function(){
+Route::middleware(['auth', 'verified', 'role:vet'])->group(function () {
     Route::get('/vet-dashboard', [VetController::class, 'index'])->name('vet.dashboard');
-    
+
     // Profile
     Route::get('/vet/profile', [VetController::class, 'edit'])->name('vet.profile.edit');
     Route::post('/vet/profile', [VetController::class, 'update'])->name('vet.profile.update');
 
     // Appointments
     Route::get('/vet/appointments', [AppointController::class, 'vetAppointments'])->name('vet.appointments');
-    
-    // Update Status
-    // PERBAIKAN: Dikembalikan ke PUT karena form browser mengirim method PUT
+
+    // Status
     Route::put('/vet/appointments/{id}/status', [AppointController::class, 'updateStatus'])->name('vet.appointment.status');
-    
+
     // Feedback
-    // Catatan: Jika form feedback juga error serupa, ubah ini juga menjadi Route::post
     Route::put('/vet/appointments/{id}/feedback', [AppointController::class, 'updateVetFeedback'])->name('vet.feedback');
 });
 
 // -----------------------------------------------------------------------------
 // 👤 OWNER ROUTES
 // -----------------------------------------------------------------------------
-Route::middleware(['auth', 'verified', 'role:owner'])->group(function(){
+Route::middleware(['auth', 'verified', 'role:owner'])->group(function () {
     Route::get('/owner-dashboard', [OwnerController::class, 'index'])->name('owner.dashboard');
 
     // Pet Management
@@ -117,7 +121,7 @@ Route::middleware(['auth', 'verified', 'role:owner'])->group(function(){
     // Appointments
     Route::get('/my-appointments', [AppointController::class, 'ownerAppointments'])->name('owner.appointments');
     Route::put('/cancel-appointment/{id}', [AppointController::class, 'cancel'])->name('owner.appointment.cancel');
-    
+
     // Available Vets
     Route::get('/available-vets', [VetController::class, 'vets'])->name('owner.vets');
 
@@ -127,4 +131,4 @@ Route::middleware(['auth', 'verified', 'role:owner'])->group(function(){
     Route::get('/owner/my-adoptions', [OwnerController::class, 'myAdoptionRequests'])->name('owner.myadoptions');
 });
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';
