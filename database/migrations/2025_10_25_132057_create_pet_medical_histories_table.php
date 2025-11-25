@@ -11,13 +11,25 @@ return new class extends Migration {
             $table->id();
             $table->unsignedBigInteger('pet_id')->nullable();
             $table->unsignedBigInteger('shelter_pet_id')->nullable();
-            $table->unsignedBigInteger('vet_id')->constrained('users')->onDelete('cascade');
+            $table->unsignedBigInteger('vet_id');
             $table->text('notes')->nullable();
             $table->timestamps();
 
-            // relations
-            $table->foreign('pet_id')->references('id')->on('pets')->onDelete('cascade');
-            $table->foreign('shelter_pet_id')->references('id')->on('shelter_pets')->onDelete('cascade');
+            // Foreign keys
+            $table->foreign('pet_id')
+                ->references('id')
+                ->on('pets')
+                ->onDelete('cascade');
+
+            $table->foreign('shelter_pet_id')
+                ->references('id')
+                ->on('shelter_pets')
+                ->onDelete('cascade');
+
+            $table->foreign('vet_id')
+                ->references('id')
+                ->on('users')
+                ->onDelete('cascade');
         });
     }
 
