@@ -94,7 +94,7 @@ class PetController extends Controller
             'age' => 'nullable|integer|min:0',
             'gender' => 'nullable|string|in:male,female,perempuan,laki-laki',
             'medical_info' => 'nullable|string|max:255',
-            'pet_photo' => 'nullable|image|mimes:jpg,png,jpeg|max:2048', 
+            'pet_photo' => 'nullable|image|mimes:jpg,png,jpeg|max:5120', 
         ]);
         
         // 2. Siapkan data update
