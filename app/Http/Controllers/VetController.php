@@ -73,7 +73,7 @@ class VetController extends Controller
             'available_days' => 'nullable|string|max:255',
             'available_time' => 'nullable|string|max:255',
             'about' => 'nullable|string',
-            'photo' => 'nullable|image|mimes:jpeg,png,jpg|max:2048',
+            'photo' => 'nullable|image|mimes:jpeg,png,jpg|max:5120',
         ]);
 
         // Update or create profile
@@ -87,6 +87,7 @@ class VetController extends Controller
                 'available_days' => $request->available_days,
                 'available_time' => $request->available_time,
                 'about' => $request->about,
+                'photo' => $request->photo,
             ]
         );
 
