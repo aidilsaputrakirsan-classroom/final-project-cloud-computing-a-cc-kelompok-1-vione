@@ -39,7 +39,7 @@ class ShelterController extends Controller
             'age' => 'nullable|integer',
             'gender' => 'nullable|string',
             'medical_info' => 'nullable|string',
-            'photo' => 'nullable|image|mimes:jpg,png,jpeg|max:2048',
+            'photo' => 'nullable|image|mimes:jpg,png,jpeg|max:5120',
         ]);
 
         $data = $request->only(['name', 'species', 'breed', 'age', 'medical_info']);
@@ -78,7 +78,7 @@ class ShelterController extends Controller
             'age' => 'nullable|integer|min:0',
             'medical_info' => 'nullable|string|max:255',
             'status' => 'required|in:available,pending,adopted',
-            'photo' => 'nullable|image|mimes:jpg,png,jpeg|max:2048',
+            'photo' => 'nullable|image|mimes:jpg,png,jpeg|max:5120',
         ]);
 
         // Perbaikan: gunakan 'name' bukan 'pet_name'

@@ -8,7 +8,6 @@ use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\View\View;
-use Illuminate\Support\Facades\Route;
 
 class AuthenticatedSessionController extends Controller
 {
@@ -30,21 +29,32 @@ class AuthenticatedSessionController extends Controller
         $request->session()->regenerate();
 
         // ===================================================
-        // INILAH LOGIKA YANG HILANG YANG KITA TAMBAHKAN
+        // LOGIKA REDIRECT BERDASARKAN ROLE
         // ===================================================
-        $url = '';
-        if(Auth::user()->role === 'owner'){
+        
+        $role = Auth::user()->role; // Ambil role user yang baru login
+        $url = '/'; // Default url (jika tidak punya role)
+
+        // 1. Cek apakah Super Admin?
+        if ($role === 'super_admin') {
+            $url = '/activity-logs';
+        } 
+        // 2. Cek Owner
+        elseif ($role === 'owner') {
             $url = '/owner-dashboard';
-        } elseif(Auth::user()->role === 'vet'){
+        } 
+        // 3. Cek Vet (Dokter)
+        elseif ($role === 'vet') {
             $url = '/vet-dashboard';
-        } elseif(Auth::user()->role === 'shelter'){
+        } 
+        // 4. Cek Shelter
+        elseif ($role === 'shelter') {
             $url = '/shelter-dashboard';
-        } else {
-            // Jika tidak punya role, arahkan ke halaman utama
-            $url = '/';
+        }
+
+        return redirect()->intended($url);
     }
-    return redirect()->intended($url);
-    }
+
     /**
      * Destroy an authenticated session.
      */
@@ -57,5 +67,5 @@ class AuthenticatedSessionController extends Controller
         $request->session()->regenerateToken();
 
         return redirect('/');
-}
+    }
 }

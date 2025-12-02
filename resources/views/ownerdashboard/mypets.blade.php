@@ -147,12 +147,6 @@
             <!-- 🟡 End Edit Modal -->
 
         @empty
-            <div class="col-12 text-center">
-                <p class="text-muted fs-5">No pets added yet.</p>
-                <button type="button" class="btn btn-primary px-4" data-bs-toggle="modal" data-bs-target="#addPetModal">
-                    <i class="fa-solid fa-plus-circle me-2"></i> Add Your First Pet
-                </button>
-            </div>
         @endforelse
     </div>
 </div>

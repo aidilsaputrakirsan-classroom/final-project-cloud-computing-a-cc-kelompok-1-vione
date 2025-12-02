@@ -11,17 +11,16 @@ return new class extends Migration
      */
     public function up(): void
     {
+        // PERBAIKAN: Hapus tabel lama dulu jika ada, supaya tidak error
+        Schema::dropIfExists('activity_logs');
+
+        // Baru buat tabelnya ulang
         Schema::create('activity_logs', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('user_id')->nullable();
-            $table->string('action');
-            $table->text('description')->nullable();
+            $table->foreignId('user_id')->nullable()->constrained('users')->onDelete('cascade');
+            $table->string('action'); // Contoh: "CREATE", "UPDATE", "DELETE"
+            $table->text('description'); // Contoh: "Menambahkan hewan baru bernama Mochi"
             $table->timestamps();
-
-            // Relasi ke tabel users
-            $table->foreign('user_id')
-                  ->references('id')->on('users')
-                  ->onDelete('set null');
         });
     }
 

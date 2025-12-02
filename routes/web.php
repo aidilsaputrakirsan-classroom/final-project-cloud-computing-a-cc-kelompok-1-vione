@@ -32,7 +32,15 @@ Route::get('/services', function () {
 // -----------------------------------------------------------------------------
 Route::middleware(['auth', 'verified'])->group(function () {
 
+    // 1. DASHBOARD LOGIC (Digabung jadi satu biar rapi)
     Route::get('/dashboard', function () {
+        $user = auth()->user();
+        
+        // Redirect khusus Super Admin ke Activity Logs
+        if ($user->role === 'super_admin') {
+            return redirect()->route('activity.logs'); 
+        }
+        
         return view('dashboard');
     })->name('dashboard');
 
@@ -44,7 +52,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
     // 📅 Booking Appointment
     Route::post('/appointments', [AppointController::class, 'store'])->name('appointments.store');
 
-    // Redirect sesuai role
+    // Redirect sesuai role (Syntax diperbaiki)
     Route::get('/appointments', function () {
         $role = auth()->user()->role;
 
@@ -55,13 +63,15 @@ Route::middleware(['auth', 'verified'])->group(function () {
         } else {
             return redirect()->route('owner.appointments');
         }
-    });
+    }); // <--- Penutup kurung kurawal yang tadi hilang
 
     // ------------------------------------------------------------
-    // ✅ ACTIVITY LOG (PERBAIKAN UTAMA)
+    // 🔒 ACTIVITY LOG (DIBATASI KHUSUS SUPER ADMIN)
     // ------------------------------------------------------------
-    Route::get('/activity-logs', [ActivityLogController::class, 'index'])
-        ->name('activity.logs');
+    Route::middleware(['role:super_admin'])->group(function () {
+        Route::get('/activity-logs', [ActivityLogController::class, 'index'])
+            ->name('activity.logs');
+    });
 });
 
 // -----------------------------------------------------------------------------
